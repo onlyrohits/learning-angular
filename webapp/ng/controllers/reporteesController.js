@@ -1,7 +1,12 @@
 ﻿(function () {
-    var reporteesController = angular.module("myApp").controller("reporteesController", function ($scope,$svcUser) {
+    var reporteesController = angular.module("myApp").controller("reporteesController", function ($scope, $svcUser, $location) {
         console.log("reporteesController : initiated  ..");
         console.log("reporteesController : logging the logged in user");
-        console.log($svcUser.loggedInUser);
+        var init = function () {
+            if ($svcUser.loggedInUser == null) {
+                //this is a dirty login , we would want to go back to the login page
+                $location.url("/")
+            }
+        }; init();
     })
 })();
