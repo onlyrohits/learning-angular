@@ -1,5 +1,5 @@
 ﻿(function () {
-    var loginController = angular.module("myApp").controller("loginController", function ($scope, $svcUser) {
+    var loginController = angular.module("myApp").controller("loginController", function ($scope, $svcUser, $location) {
         console.log("loginController : initiated..");
         $scope.user = {
             username: "",
@@ -12,7 +12,8 @@
                 $svcUser.authenticate($scope.user.username, $scope.user.password)
                     .then(function (data) {
                         console.log("logincontroller: we have authenticated th user");
-                        console.log(data);
+                        $svcUser.loggedInUser = data;
+                        $location.url("/reportees");
                 }, function (data) {
                     console.log("logincontroller : the user has failed authentication");
                     console.log(data.ErrorMessage);

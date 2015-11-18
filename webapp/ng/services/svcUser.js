@@ -1,5 +1,6 @@
 ﻿(function () {
     var $svcUser = angular.module("myApp").service("$svcUser", function ($http, $timeout, $q) {
+        this.loggedInUser = null;
         this.authenticate = function (username, password) {
             var deferred = $q.defer();
             //var url = "http://vpunplepun2-01:8080/webapi/users"; //this is imaginary url for the api
