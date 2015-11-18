@@ -1,5 +1,5 @@
 ﻿(function () {
-    var $svcUser = angular.module("myApp").service("$svcUser", function ($http, $timeout, $q) {
+    var $svcUser = angular.module("myApp").service("$svcUser", function ($http, $timeout, $q, $mockService) {
         this.loggedInUser = null;
         this.authenticate = function (username, password) {
             var deferred = $q.defer();
@@ -16,13 +16,7 @@
             $timeout(function () {
                 if (username=="niranjan_awati" && password =="41993") {
                     console.log("$svcUser/authenticate: the user has been authenticated");
-                    deferred.resolve({
-                        email: "niranjan_awati",
-                        empno: 41993,
-                        alias: "Niranjan V Awati",
-                        location: { title: "pune", code: "PUN" },
-                        role: {title:"lecturer"}
-                    });
+                    deferred.resolve($mockService().niranjan);
                 }
                 else {
                     console.log("$svcUsr/authenticate: the user has failed authentication");
