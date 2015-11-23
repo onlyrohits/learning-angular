@@ -3,34 +3,25 @@
         return {
             restrict: "A",
             scope: {
-                fnGetUser:"="
+                fnGetUser: "=",
             },
             compile: function (telem, tattrs) {
                 console.log("we are inside the compile function");
+
                 return{
                     pre: function (scope, elem, attrs) {
-                        console.log("this is from inside the pre function");
-                        console.log(scope.fnGetUser);
+                        //var attrValue = $(elem[0]).attr("login-mandate");
+                        //console.log(attrValue);
+                        //var fn = scope.$eval($(elem[0]).attr("login-mandate"));
+                        //console.log(fn);
                     },
-                    post: function (scope,elem, attrs) {
-                        console.log("this is from inside the post function");
-                        console.log(scope.fnGetUser);
+                    post: function (scope, elem, attrs) {
+                       
                     }
                 }
             },
             controller: function ($scope, $location, $routeParams) {
-                console.log("we are inside the controller function");
-                if ($scope.fnGetUser == null) {
-                    console.log("we have no function to get the user from");
-                }
-                else {
-                    $scope.fnGetUser($routeParams.empno).then(function (data) {
-                        console.log("we have the user received from the server");
-                        console.log(data);
-                    }, function () {
-                        $location.url("/")
-                    })
-                }
+                $scope.fnGetUser();
             }
         }
     });
