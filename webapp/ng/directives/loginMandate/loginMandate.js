@@ -22,7 +22,8 @@
                         empno: 41993,
                         email: "niranjan_Awati"
                     };
-                   
+                    $scope.users = [];
+                  
                 }
             }
         }
@@ -33,7 +34,7 @@
             scope: false,
           
             controller: function ($scope) {
-                $scope.$watch("user", function (newValue, oldValue) {
+                $scope.$watchCollection("users", function (newValue, oldValue) {
                     if (newValue != null) {
                         console.log("watchingUser:the user object is received from the server");
                     }
