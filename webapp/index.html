@@ -5,6 +5,7 @@
     <script src="Scripts/jquery-2.1.4.js"></script>
     <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
     <link href="Content/bootstrap.css" rel="stylesheet" />
 
     <link href="Content/bootswatch/superhero/bootstrap.css" rel="stylesheet" />
@@ -12,9 +13,7 @@
     <script src="ng/controllers/mainController.js"></script>
 </head>
 <body ng-app="myApp">
-    <div ng-controller="mainController">
-
-    {{email}}
-    </div>
+   
+    <div ng-view></div>
 </body>
 </html>
