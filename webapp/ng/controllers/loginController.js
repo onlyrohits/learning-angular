@@ -20,9 +20,11 @@
             $timeout(function () {
                 if ($scope.user.username == "niranjan_awati" && $scope.user.password == "41993") {
                     console.log("user is authenticated .. ");
+                    endBusyAnimation();
                 }
                 else {
                     console.log("user has failed authentication");
+                    endBusyAnimation();
                 }
             }, 2000)
             console.log("we are not sure when this line would run , before or after the server response");
@@ -41,7 +43,7 @@
             if (validate()==true) {
                 runBusyAnimation();
                 postBackServer();
-                endBusyAnimation();
+                
             }
             else {
                 invalidate();
