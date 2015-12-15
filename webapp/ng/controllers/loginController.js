@@ -6,6 +6,7 @@
         }
         var runBusyAnimation = function () {
             console.log("we pretend that there is an animation running right now..");
+            $scope.showAnimation = true;
         }
         var postBackServer = function () {
             //var url="http://localhost:8080/webapi/employees/" + $scope.user.username
@@ -31,10 +32,13 @@
         }
         var endBusyAnimation = function () {
             console.log("the animation is stopped and the user can see the login screen again");
+            $scope.showAnimation = false;
         }
         var invalidate = function () {
             //all that needs to be done before the user sees the error message
         }
+        $scope.showAnimation = false;
+
         $scope.user = {
             username: "",
             password:""
