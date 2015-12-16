@@ -1,4 +1,14 @@
 ﻿<div class="col-md-6 col-md-offset-3">
+    <div class="input-group">
+       
+        <input type="text" class="form-control" ng-model="phrase">
+        <span class="input-group-btn">
+            <button class="btn btn-info" type="button">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </span>
+    </div>
+    <br />
     <table class="table table-responsive">
         <thead>
             <tr class="active">
@@ -10,7 +20,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="emp in reportees">
+            <tr ng-repeat="emp in reportees|likely:phrase">
                 <td><h4>{{emp.empno}}</h4></td>
                 <td><h4>{{emp.email}}</h4></td>
                 <td><h4>{{emp.alias}}</h4></td>
