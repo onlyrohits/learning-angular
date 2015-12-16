@@ -1,5 +1,5 @@
 ﻿(function () {
-    var loginController = angular.module("myApp").controller("loginController", function ($scope, $http, $timeout) {
+    var loginController = angular.module("myApp").controller("loginController", function ($scope, srvEmployee) {
         var validate = function () {
             //verifies that the username and the password are filled up by the user
             return $scope.user.username != "" && $scope.user.password != "" ? true : false;
@@ -13,25 +13,13 @@
             $scope.showAnimation = true;
         }
         var postBackServer = function () {
-            //var url="http://localhost:8080/webapi/employees/" + $scope.user.username
-            //$http.get(url).then(function (response) {
-              
-            //    if (response.data.empno ==$scope.user.password) {
-            //        console.log("we have successful authentication..");
-            //    }
-            //}, function (response) {
-            //    console.log("we have failed authentication..");
-            //})
-            $timeout(function () {
-                if ($scope.user.username == "niranjan_awati" && $scope.user.password == "41993") {
-                    console.log("user is authenticated .. ");
-                    endBusyAnimation();
-                }
-                else {
-                    console.log("user has failed authentication");
-                    endBusyAnimation();
-                }
-            }, 2000)
+            srvEmployee.ofEmpno($scope.user.password).then(function (data) {
+                console.log("user is authenticated .. ");
+                endBusyAnimation();
+            }, function (data) {
+                console.log("user has failed authentication");
+                endBusyAnimation();
+            });
             console.log("we are not sure when this line would run , before or after the server response");
         }
         
