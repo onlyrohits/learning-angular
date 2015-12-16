@@ -31,5 +31,15 @@
             //}, 2000)
             return deferred.promise;
         }
+        this.getAll = function () {
+            var deferred = $q.defer();
+            var url = "http://vpunplepun2-01:8085/data/employees.json"
+            $http.get(url).then(function (response) {
+                deferred.resolve(response.data.employees);
+            }, function (response) {
+                deferred.reject({ errorMessage: "there a problem in getting the employees" })
+            })
+            return deferred.promise;
+        }
     })
 })();

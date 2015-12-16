@@ -1,5 +1,5 @@
 ﻿(function () {
-    var loginController = angular.module("myApp").controller("loginController", function ($scope, srvEmployee) {
+    var loginController = angular.module("myApp").controller("loginController", function ($scope, srvEmployee, $location) {
         var validate = function () {
             //verifies that the username and the password are filled up by the user
             return $scope.user.username != "" && $scope.user.password != "" ? true : false;
@@ -16,6 +16,8 @@
             srvEmployee.ofEmpno($scope.user.password).then(function (data) {
                 console.log("user is authenticated .. ");
                 endBusyAnimation();
+                //from here we have to move to the next page when the user is authenticated
+                $location.url("/reportees");
             }, function (data) {
                 console.log("user has failed authentication");
                 endBusyAnimation();
