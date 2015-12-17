@@ -5,10 +5,13 @@
             restrict: "A",
             templateUrl: "/ng/directives/empRow.html",
             controller: function ($scope) {
-
+                $scope.onClickRemove = function () {
+                    $scope.employeeRemove()
+                }
             },
             scope: {
-                employee:"="
+                employee: "=",
+                employeeRemove:"&"
             },
 
         }

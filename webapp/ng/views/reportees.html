@@ -12,6 +12,9 @@
     <table class="table table-responsive">
         <thead>
             <tr class="active">
+                <th><h4>
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </h4></th>
                 <th><h4>Empno</h4></th>
                 <th><h4>Email</h4></th>
                 <th><h4>Alias</h4></th>
@@ -20,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr employee="emp" emp-row ng-repeat="emp in reportees|likely:phrase"></tr>
+            <tr employee-remove="employeeRemove($index)" employee="emp" emp-row ng-repeat="emp in reportees track by $index |likely:phrase"></tr>
         </tbody>
     </table>
 </div>

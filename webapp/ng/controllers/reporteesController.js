@@ -5,5 +5,10 @@
         srvEmployee.getAll().then(function (data) {
             $scope.reportees = data;
         })
+        $scope.employeeRemove = function (index) {
+            console.log("the employee to remove from the collection is ..");
+            console.log($scope.reportees[index]);
+            $scope.reportees.splice(index, 1);
+        }
     })
 })();
