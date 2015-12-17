@@ -5,7 +5,9 @@
             restrict: "A",
             templateUrl: "/ng/directives/empRow.html",
             controller: function ($scope) {
-             
+                $scope.$watch("employee['email']", function (newvalue, oldvalue) {
+                    $scope.changed = true;
+                })
             },
             scope: {
                 employee: "=",
