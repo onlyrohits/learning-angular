@@ -1,26 +1,33 @@
 ﻿(function () {
-    var srvEmployee = angular.module("myApp").service("srvEmployee", function ($q,$timeout, $http) {
+    var srvEmployee = angular.module("myApp").service("srvEmployee", function ($q,$timeout, $http, $rootScope) {
         this.ofEmpno = function (empno) {
             var deferred = $q.defer();
             var url = "http://vpunplepun2-01:8085/data/employees.json"
             var result = null;
-            $http.get(url).then(function (response) {
-                $.each(response.data.employees, function (index, elem) {
-                    if (elem.empno.toString() == empno) {
-                        result = elem;
-                        return true;
+            $rootScope.$broadcast("server-busy");
+            $timeout(function () {
+                $http.get(url).then(function (response) {
+                    $.each(response.data.employees, function (index, elem) {
+                        if (elem.empno.toString() == empno) {
+                            result = elem;
+                            return true;
+                        }
+                    });
+                    if (result != null) {
+                        deferred.resolve(result);
+                        $rootScope.$broadcast("server-success");
                     }
-                });
-                if (result!=null) {
-                    deferred.resolve(result);
-                }
-                else {
-                    deferred.reject({ errorMessage: "the user was not authenticated" });
-                }
-               
-            }, function (response) {
-                deferred.reject({errorMessage:"there a problem in getting the employees"})
-            })
+                    else {
+                        deferred.reject({ errorMessage: "the user was not authenticated" });
+                        $rootScope.$broadcast("server-fail");
+                    }
+
+                }, function (response) {
+                    deferred.reject({ errorMessage: "there a problem in getting the employees" });
+                    $rootScope.$broadcast("server-fail");
+                })
+            },4000)
+            
             //$timeout(function () {
             //    if (empno =="41993") {
             //        deferred.resolve({})
