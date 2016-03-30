@@ -1,4 +1,4 @@
-﻿(function (undefined) {
+﻿(function () {
 
     var myNgApp = angular.module("myNgApp", ["ngRoute"])
     .config(function ($routeProvider) {
