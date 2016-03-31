@@ -1,1 +1,29 @@
-﻿<p>This is the employees view</p>
+﻿<div class="col-lg-4 col-lg-offset-4">
+    
+    <table class="table table-responsive table-hover">
+        <thead>
+            <tr class="active">
+                <th><h4>Empno</h4></th>
+                <th><h4>Email</h4></th>
+                <th><h4>Alias</h4></th>
+                <th><h4>Role</h4></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="e in employees">
+                <td>
+                    <h4>{{e.empno}}</h4>
+                </td>
+                <td>
+                    <h4>{{e.email}}</h4>
+                </td>
+                <td>
+                    <h4>{{e.alias}}</h4>
+                </td>
+                <td>
+                    <h4>{{e.role.title}}</h4>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
