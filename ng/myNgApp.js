@@ -5,7 +5,7 @@
         $routeProvider
             .when("/", { templateUrl: "ng/views/login.html", controller: "loginController" })
             .when("/login", { templateUrl: "ng/views/login.html", controller: "loginController" })
-            .when("/employees", {templateUrl:"ng/views/employees.html", controller:""})
+            .when("/employees", {templateUrl:"ng/views/employees.html", controller:"employeesController"})
     })
 
 })();

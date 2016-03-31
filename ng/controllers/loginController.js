@@ -11,6 +11,8 @@
                 })[0];
                 if (emp.account.password == $scope.password) {
                     console.info("authentication was successful");
+                    svcEmployee.loggedInUser(emp);
+                    console.debug(svcEmployee.loggedInUser());
                     $location.url("/employees");
                 }
                 else {
