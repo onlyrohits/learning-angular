@@ -14,9 +14,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="e in employees|likely:phrase">
+            <tr ng-repeat="e in employees |likely:phrase track by $index">
                 <td>
-                    <h4>{{e.empno}}</h4>
+                    <h4>{{$index}}</h4>
                 </td>
                 <td>
                     <h4>{{e.email}}</h4>

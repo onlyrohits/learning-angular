@@ -2,6 +2,13 @@
     var loginController = angular.module("myNgApp").controller("loginController", function ($scope, $location, svcEmployee) {
         $scope.username = "";
         $scope.password = "";
+        $scope.shoWarning = false;
+
+        $scope.reset = function () {
+            $scope.username = "";
+            $scope.password = "";
+            $scope.shoWarning = false;
+        }
         $scope.login = function () {
           
             svcEmployee.GETOfEmail($scope.username).then(function (data) {
@@ -17,6 +24,7 @@
                 }
                 else {
                     console.error("check username and password combination");
+                    $scope.shoWarning = true;
                 }
             }, function (data) {
                 /*this is deferred.reject*/
