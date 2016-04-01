@@ -2,6 +2,7 @@
 
     var employeesController = angular.module("myNgApp").controller("employeesController", function (svcEmployee, $location, $scope) {
         $scope.employees = [];
+        $scope.phrase = "";
         if (svcEmployee.loggedInUser() == null || svcEmployee.loggedInUser() === undefined) {
             $location.url("/");
         }

@@ -1,5 +1,9 @@
 ﻿<div class="col-lg-4 col-lg-offset-4">
-    
+    <br />
+    <div class="form-group">
+        <input class="form-control input-sm" type="text" id="inputSmall" ng-model="phrase">
+    </div>
+    <br />
     <table class="table table-responsive table-hover">
         <thead>
             <tr class="active">
@@ -10,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="e in employees">
+            <tr ng-repeat="e in employees|likely:phrase">
                 <td>
                     <h4>{{e.empno}}</h4>
                 </td>
