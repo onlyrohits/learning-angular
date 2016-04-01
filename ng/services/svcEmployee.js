@@ -1,12 +1,13 @@
 ﻿(function () {
 
-    var svcEmployee = angular.module("myNgApp").service("svcEmployee", function ($http, $q) {
+    var svcEmployee = angular.module("myNgApp").service("svcEmployee", function ($http, $q, $window) {
         var _loggedInUser = null;
         this.loggedInUser = function (value) {
             if (value === undefined) {
-                return _loggedInUser;
+                return _loggedInUser ==null ? JSON.parse($window.localStorage["user"]):_loggedInUser;
             }
             else {
+                $window.localStorage["user"] = JSON.stringify(value);
                 _loggedInUser = value;
             }
         };
