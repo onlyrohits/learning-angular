@@ -23,6 +23,10 @@
             });
             console.table(itemsChanged);
         }
+        $scope.employeeClicked = function (employee) {
+            console.info("we have received the function call on change of the employee");
+            console.debug(employee);
+        }
     })
 
 })();

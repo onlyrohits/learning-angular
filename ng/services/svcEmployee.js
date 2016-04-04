@@ -29,16 +29,16 @@
             var deferred = $q.defer();
             var url = "http://vpunplepun2-01:8085/data/employees.json";
             console.debug("we have now send the request to the server..");
-            $timeout(function () {
-                console.debug("we have received the response from the server");
+            //$timeout(function () {
+            //    console.debug("we have received the response from the server");
 
-                deferred.resolve([]);
-            }, 1700)
-            //$http.get(url).then(function (response) {
-            //    deferred.resolve(response.data.employees)
-            //}, function (response) {
-            //    deferred.reject({});
-            //});
+            //    deferred.resolve([]);
+            //}, 1700)
+            $http.get(url).then(function (response) {
+                deferred.resolve(response.data.employees)
+            }, function (response) {
+                deferred.reject({});
+            });
             return deferred.promise;
 
         }

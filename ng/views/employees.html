@@ -19,24 +19,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="e in employees |likely:phrase track by $index" ng-click="e.picked=!e.picked">
-                <td>
-                    <h4>
-                        <span ng-class="{true:'glyphicon glyphicon-remove', false:''}[e.picked==true]"></span>
-                    </h4>
-                </td>
-                <td>
-                    <h4>{{$index}}</h4>
-                </td>
-                <td>
-                    <h4>{{e.email}}</h4>
-                </td>
-                <td>
-                    <h4>{{e.alias}}</h4>
-                </td>
-                <td>
-                    <h4>{{e.role.title}}</h4>
-                </td>
+            
+            <tr on-row-click="employeeClicked(employee)" emp="e" employee-row  ng-repeat="e in employees |likely:phrase track by $index" >
+               
             </tr>
         </tbody>
     </table>
@@ -47,9 +32,7 @@
     </button>
     <br />
     <!-- this is the new html tag that i have just invented -->
-    <my-directive>
-
-    </my-directive>
+  
 
     
 </div>
