@@ -14,9 +14,11 @@
                     $scope.emp.picked = !$scope.emp.picked;
                     $scope.onRowClick({ employee: $scope.emp });
                 }
+               
             },
             link: function (scope,elem, attrs, ctroller) {
-
+                /*this is actually the post link function*/
+                $(elem[0]).after("<tr><td colspan='2'></td><td colspan=3>Reportee1</td></tr><tr><td colspan='2'></td><td colspan=3>Reportee2</td></tr>");
             }
 
         }
