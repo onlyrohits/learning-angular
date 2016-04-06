@@ -1,0 +1,7 @@
+﻿<div >
+
+    <ul class="nav nav-pills">
+        <li ng-repeat="t in tabs track by $index" ng-click="tabClicked($index)" ng-class="{true:'active', false:''}[t.active==true]"><a>{{t.title}}</a></li>
+    </ul>
+    <ng-transclude></ng-transclude>
+</div>

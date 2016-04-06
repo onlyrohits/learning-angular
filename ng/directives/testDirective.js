@@ -31,4 +31,69 @@
             }
         }
     })
+    var tabbyTab = angular.module("myNgApp").directive("tabbyTab", function () {
+        return {
+            restrict: "E",
+            templateUrl: "ng/templates/tabbyTab.html",
+            transclude: true,
+
+            controller: function ($scope) {
+                $scope.tabs = [];
+                this.addTab = function (tab) {
+                    console.info("adding tab leaf .."); console.debug(tab);
+                    $scope.tabs.push(tab);
+                }
+                $scope.tabClicked = function (i) {
+                    $scope.tabs.forEach(function (ele,index) {
+                        if (i !== index) {
+                            ele.deactivate();
+                        }
+                        else {
+                            ele.activate();
+                        }
+                    })
+                }
+            }
+        }
+    })
+    var tabLeaf = angular.module("myNgApp").directive("tabLeaf", function ($compile) {
+        return {
+            restrict: "E",
+            templateUrl: "ng/templates/tabLeaf.html",
+            transclude: true,
+            controller: function ($scope) {
+
+            },
+            require:"^tabbyTab",
+            compile: function (tElem, tAttrs) {
+                console.debug("from inside the compile function");
+                console.debug(tElem[0]);
+                return {
+                    pre: function (scope, elem,attrs, ctroller, tclusion) {
+                        console.debug("from inside the pre function");
+                        console.debug(elem[0]);
+                        tclusion(function (ele, scope) {
+                            var leaf = {
+                                title: attrs.title,
+                                content: ele,
+                                active: attrs.active ? true : false,
+                                activate: function () {
+                                    $(elem[0]).children(".leaf-content").append(ele);
+                                },
+                                deactivate: function () {
+                                    $(elem[0]).children(".leaf-content").empty();
+                                    scope.$destroy();
+                                }
+                            };
+                            ctroller.addTab(leaf)
+                            if (attrs.active !== undefined) {
+                                leaf.activate();
+                            }
+                        })
+                    },
+                    
+                }
+            }
+        }
+    })
 })();
