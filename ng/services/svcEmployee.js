@@ -11,7 +11,25 @@
                 _loggedInUser = value;
             }
         };
+        this.Delete = function (listToDelete) {
+            var deferred = $q.defer();
+            
 
+            var promises = [];
+            angular.forEach(listToDelete, function (value, key) {
+                var url = "http://localhost:8080/webapi/employees/:id".replace(/:id/, value.empno);
+                var promise = $http.delete(url);
+                promises.push(promise);
+
+            })
+            $q.all(promises).then(function () {
+                deferred.resolve({})
+            }, function () {
+                deferred.reject({})
+            });
+
+            return deferred.promise;
+        }
         this.GETOfEmail = function (email) {
             var deferred = $q.defer();
             var url = "http://vpunplepun2-01:8085/data/employees.json";
