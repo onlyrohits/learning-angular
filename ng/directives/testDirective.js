@@ -77,4 +77,43 @@
             }
         }
     })
+    var tabbyTab = angular.module("myNgApp").directive("tabbyTab", function () {
+        return {
+            restrict: "E",
+            scope: {},
+            transclude: true,
+            controller: function ($scope) {
+
+            },
+            link: function (scope, elem, attrs, ctroller, tclusion) {
+
+            },
+            templateUrl:"ng/templates/tabbyTab.html"
+        }
+    })
+    var tabbyLeaf = angular.module("myNgApp").directive("tabbyLeaf", function () {
+        return {
+            restrict: "E",
+            scope: {},
+            transclude: true,
+            controller: function ($scope) {
+
+            },
+            compile: function (tElem, tAttrs) {
+                return {
+                    pre: function (scope, elem, attrs, ctroller, tclusion) {
+                        tclusion(function (ele, scope) {
+                            if (attrs.active !== undefined) {
+                                $(elem[0]).find(".leaf-content").append(ele);
+                            }
+                        })
+                    },
+                    post: function (scope, elem, attrs, ctroller, tclusion) {
+                        
+                    }
+                }
+            },
+            templateUrl: "ng/templates/tabbyLeaf.html"
+        }
+    })
 })();
