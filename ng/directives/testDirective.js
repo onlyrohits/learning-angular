@@ -15,45 +15,53 @@
     var levelOne = angular.module("myNgApp").directive("levelOne", function () {
         return {
             restrict: "E",
-            template: "<div> <p>this is the text from level-one</p> <ng-transclude></ng-transclude> </div>",
+            template: "<div ng-transclude> </div>",
             controller: function ($scope) {
                 console.info("level-one:controller");
             },
             transclude: true,
-            compile: function (tElem, tAttrs) {
-                console.info("level-one:compiler");
-                return {
-                    pre: function (scope, elem, attrs, ctroller) {
-                        console.info("level-one:pre");
+            scope:{},
+            //compile: function (tElem, tAttrs) {
+            //    console.info("level-one:compiler");
+            //    return {
+            //        pre: function (scope, elem, attrs, ctroller) {
+            //            console.info("level-one:pre");
 
-                    },
-                    post: function (scope, elem, attrs, ctroller) {
-                        console.info("level-one:post");
-                    },
-                }
-            }
+            //        },
+            //        post: function (scope, elem, attrs, ctroller) {
+            //            console.info("level-one:post");
+            //        },
+            //    }
+            //}
         }
     });
     var levelTwo = angular.module("myNgApp").directive("levelTwo", function () {
         return {
             restrict: "E",
-            template: "<div> <p>this is the text from level-two</p><ng-transclude></ng-transclude></div>",
+            template: "<div></div>",
             controller: function ($scope) {
-                console.info("level-two:controller");
+                $scope.$watch("user.name", function (after, before) {
+                    if (after != null && after !== undefined) {
+                        console.log(after);
+                    }
+                });
+                $scope.$apply(function () {
+                    
+                })
             },
-            transclude: true,
-            compile: function (tElem, tAttrs) {
-                console.info("level-two:compiler");
-                return {
-                    pre: function (scope, elem, attrs, ctroller) {
-                        console.info("level-two:pre");
+            scope:false,
+            //compile: function (tElem, tAttrs) {
+            //    console.info("level-two:compiler");
+            //    return {
+            //        pre: function (scope, elem, attrs, ctroller) {
+            //            console.info("level-two:pre");
 
-                    },
-                    post: function (scope, elem, attrs, ctroller) {
-                        console.info("level-two:post");
-                    },
-                }
-            }
+            //        },
+            //        post: function (scope, elem, attrs, ctroller) {
+            //            console.info("level-two:post");
+            //        },
+            //    }
+            //}
         }
     })
     var levelThree = angular.module("myNgApp").directive("levelThree", function () {
