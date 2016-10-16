@@ -1,0 +1,10 @@
+{
+  "data":{
+    "employees":[
+      {"email":"niranjan", "password":"41993"},
+      {"email":"niranjanawati", "password":"41993"},
+      {"email":"kneerunjun", "password":"41993"},
+      {"email":"nawati", "password":"41993"}
+    ]
+  }
+}
