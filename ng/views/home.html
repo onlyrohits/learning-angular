@@ -13,4 +13,12 @@
       </span>
     </div>
   </div>
+  <div class="alert alert-dismissible alert-warning" ng-show='hasError==true'>
+    <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
+    <h4>Warning!</h4>
+    <p>
+      {{errorMessage}}
+    </p>
+    <button type="button" name="button" class="btn btn-default" ng-click='reload()'>Reload</button>
+  </div>
 </div>
