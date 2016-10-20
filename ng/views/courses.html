@@ -1,1 +1,35 @@
-<h1>Courses view</h1>
+<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+  <table class="table table-striped table-responsive">
+    <thead>
+      <tr class="info">
+        <th>
+          <h4><span class="glyphicon glyphicon-trash"></span></h4>
+        </th>
+        <th>
+          <h4>Title</h4>
+        </th>
+        <th>
+          <h4>Level</h4>
+        </th>
+        <th>
+          <h4>Genre</h4>
+        </th>
+        <th>
+          <h4>Category</h4>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat='c in courses track by $index' ng-click='c.toggleDelete()'>
+        <td><h5><span ng-class="{true:'glyphicon glyphicon-ok', false:'glyphicon glyphicon-unchecked'}[c.checked==true]"></span></h5>  </td>
+        <!-- <td><h5>{{$index +1}}</h5>  </td> -->
+        <td><h5>{{c.title}}</h5>  </td>
+        <td><h5>{{c.level}}</h5>  </td>
+        <td><h5>{{c.genre}}</h5>  </td>
+        <td><h5>{{c.category}}</h5>  </td>
+      </tr>
+    </tbody>
+  </table>
+  <br/>
+  <button type="button" name="button" class="btn btn-info" ng-click='save()'>Save</button>
+</div>

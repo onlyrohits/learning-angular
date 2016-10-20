@@ -2,7 +2,7 @@
   angular.module('eduApp').controller('mainController', function($scope){
     $scope.message='This is a message from within the controller'
   })
-  .controller('homeController', function($scope, $route, srvUsers){
+  .controller('homeController', function($scope, $route, srvUsers, $location){
     $scope.userInfo= {
       login:'',
       passwd:''
@@ -40,6 +40,8 @@
           console.debug(data)
           if (data.email !==undefined){
             console.debug('authentication passed')
+            $location.url('/courses')
+            // console.log($location.url())
           }
           else{
             console.debug('authentication failed')
@@ -59,10 +61,40 @@
     }
 
   })
-  .controller('courseController', function($scope){
+  .controller('courseController', function($scope,srvCourses, $location){
+    srvCourses.getCourses().then(function(data){
+      console.table(data);
+      data.forEach(function(el, index){
+        el.checked==false;
+        el.toggleDelete= function(){
+          // el.checked = !el.checked;
+          $location.url('/courses/'+ el.id)
+        }
+      })
+      $scope.courses = data;
+    }, function(data){
+
+    })
+    $scope.save = function(){
+      deleted=$scope.courses.filter(function(el, index){
+        return el.checked==true;
+      });
+      console.table(deleted);
+    }
 
   })
   .controller('employeesController', function($scope){
 
+  })
+  .controller('empdetailController', function($scope, $routeParams){
+    $scope.empno=$routeParams.empno
+  })
+  .controller('coursedetailController', function($scope, $routeParams,srvCourses){
+      $scope.busy=true;
+      srvCourses.filterCourse($routeParams.id).then(function(data){
+        console.debug(data)
+        $scope.course = data;
+        $scope.busy=false
+      }, function(){})
   })
 })()
