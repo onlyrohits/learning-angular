@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd /home/kneeru/src/www/sites/enggacademy/learning-angular
+sudo rm -rf ./api
+sudo rm -rf ./Content
+sudo rm -rf ./fonts
+sudo rm -rf ./ng
+sudo rm -rf ./node_modules
+sudo rm -rf ./resources
+sudo rm -rf ./Scripts
+
