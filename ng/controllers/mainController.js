@@ -1,11 +1,17 @@
 (function(){
-  var mainController = angular.module('myApp').controller('mainController', function($scope){
+  var mainController = angular.module('myApp').controller('mainController', function($scope, userService){
     $scope.userInfo ={
       email:'',
       password:''
     }
     $scope.loginUser = function(){
-      console.log($scope.userInfo);
+      userService.getDetails($scope.userInfo.email).then(function(data){
+        console.log('We have 200 OK from the server')
+        console.debug(data);
+      }, function(data){
+        console.log('We have 500 Internal server error ')
+        console.debug(data);
+      });
     }
   })
 })();
