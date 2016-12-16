@@ -3,7 +3,7 @@
     $routeProvider
     .when('/', {templateUrl:'/ng/views/login.html', controller:'mainController'})
     .when('/login', {templateUrl:'/ng/views/login.html', controller:'mainController'})
-    .when('/employees', {templateUrl:'/ng/views/employees.html', controller:'mainController'})
+    .when('/employees', {templateUrl:'/ng/views/employees.html', controller:'employeesController'})
     .otherwise({redirectTo:'/'})
   });
 })(); //IIFE - immediately invoked function expression
