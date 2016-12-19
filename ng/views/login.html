@@ -1,17 +1,27 @@
 <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
   <form class="form-horizontal well">
     <fieldset>
-      <div class="form-group">
+      <div class="form-group" ng-hide='ribbon==null'>
+        <div class="col-lg-10">
+          <p>
+            {{ribbon.message}}
+          </p>
+          <div class="progress progress-striped active">
+            <div class="progress-bar" style="width: 100%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" ng-show='ribbon==null'>
         <div class="col-lg-10">
           <input ng-model='userInfo.email' type="text" class="form-control" id="inputEmail" placeholder="Email">
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-show='ribbon==null'>
         <div class="col-lg-10">
           <input ng-model='userInfo.password' type="password" class="form-control" id="inputPassword" placeholder="Password">
         </div>
       </div>
-      <button class='btn btn-primary' type="button" name="button" ng-click='loginUser()'>Login</button>
+      <button ng-show='ribbon==null' class='btn btn-primary' type="button" name="button" ng-click='loginUser()'>Login</button>
     </fieldset>
   </form>
 

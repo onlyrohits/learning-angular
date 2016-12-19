@@ -1,14 +1,25 @@
 <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+  <div class="form-group">
+    <div class="input-group">
+      <input type="text" class="form-control" ng-model='empLike'>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">
+        <span class="glyphicon glyphicon-search"></span></button>
+      </span>
+    </div>
+</div>
   <table class="table table-responsive table-condensed">
     <thead>
       <tr class="active">
         <th><h4>Id</h4></th>
         <th><h4>Password</h4></th>
         <th><h4>Role</h4></th>
+        <th><h4>
+        <span class="glyphicon glyphicon-trash"></span></h4></th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat='e in employees'>
+      <tr ng-repeat='e in employees |likelyEmps:empLike'>
         <td>
           <h4>{{e.id}}</h4>
         </td>
@@ -17,6 +28,10 @@
         </td>
         <td>
           <h4>{{e.role}}</h4>
+        </td>
+        <td ng-click='e.toggleMark()'>
+          <h4>
+          <span ng-class="{false:'glyphicon glyphicon-minus', true:'glyphicon glyphicon-remove'}[e.markedFoDelete==true]"></span></h4>
         </td>
       </tr>
     </tbody>

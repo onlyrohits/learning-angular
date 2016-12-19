@@ -12,7 +12,9 @@
         var user  = response.data.users.filter(function(el, index){
           return el.email ==userid;
         })[0];
-        deferred.resolve(user)
+        $timeout(function(){
+          deferred.resolve(user)
+        }, 5000)
       }, function(response){
         //error
       });
