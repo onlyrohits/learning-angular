@@ -1,5 +1,5 @@
 (function(){
-  var employeesController = angular.module('myApp').controller('employeesController', function($scope){
+  var employeesController = angular.module('myApp').controller('employeesController', function($scope,$location){
     $scope.empLike ='';
     $scope.employees = [
       {id:"person1", password:'41993', role:'developer'},
@@ -14,6 +14,9 @@
       el.markedFoDelete = false;
       el.toggleMark = function(){
         el.markedFoDelete = !el.markedFoDelete;
+      }
+      el.gotoDetails = function(){
+        $location.url('/employees/:i/details'.replace(/:[a-z]/,el.id))
       }
     });
     $scope.dropLast = function(){

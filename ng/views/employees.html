@@ -20,7 +20,7 @@
     </thead>
     <tbody>
       <tr ng-repeat='e in employees |likelyEmps:empLike'>
-        <td>
+        <td ng-click='e.gotoDetails()'>
           <h4>{{e.id}}</h4>
         </td>
         <td>
