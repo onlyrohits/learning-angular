@@ -7,7 +7,7 @@
     $scope.warning =null;
     var validation = function(){
       if($scope.user.email !=="" && $scope.user.password!==""){
-        if(/[a-zA-Z0-9_.]*/.test($scope.user.email) ==true && /[0-9]*/.test($scope.user.password)==true){
+        if(/^[a-zA-Z0-9_.]*$/.test($scope.user.email) ==true && /^[0-9]*$/.test($scope.user.password)==true){
           return true;
         }
         else{
