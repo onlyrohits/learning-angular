@@ -26,10 +26,10 @@ def container_up():
                 cmd ="docker rm {0}".format(container_id)
                 subprocess.call(cmd.split())
         cmd = """docker run -d -p 8037:8080 \
-         -v /run/media/kneerunjun/jaro-extension/nglearning/www:/var/nglearning/www \
-         -v /run/media/kneerunjun/jaro-extension/libs/npm/node_modules:/var/www-commons/npm/node_modules \
-         -v /run/media/kneerunjun/jaro-extension/nglearning/store:/var/nglearning/store \
-         -v /run/media/kneerunjun/jaro-extension/nglearning/http:/var/nglearning/http \
+         -v /home/kneeru/repos/learning-angular/www:/var/nglearning/www \
+         -v /home/kneeru/repos/npm/node_modules:/var/www-commons/npm/node_modules \
+         -v /home/kneeru/repos/learning-angular/store:/var/nglearning/store \
+         -v /home/kneeru/repos/learning-angular/http:/var/nglearning/http \
          {0}
          """.format(image_id)
         print("starting a fresh container .. ")
@@ -41,7 +41,7 @@ def container_up():
                 time.sleep(3)
                 subprocess.call(cmd.split())
 def image_build():
-    dock_dir ="/run/media/kneerunjun/jaro-extension/nglearning/docker"
+    dock_dir ="/home/kneeru/repos/learning-angular/docker"
     os.chdir(dock_dir)
     cmd ="docker build -t kneerunjun/nglearning:latest ."
     subprocess.call(cmd.split())
