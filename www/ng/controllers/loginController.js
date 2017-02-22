@@ -30,9 +30,16 @@
         console.log("we have validated and good to go");
         clearWarning();
         $scope.serverBusy = {};
-        myappHttp.getUsers().then(function(data){
+        myappHttp.getUser($scope.user.email).then(function(data){
           $scope.serverBusy = null;
-          $location.url("/employees");
+          if (data!==undefined && data!==null) {
+            if (data.password == $scope.user.password){
+              myappHttp.cacheUser(data);
+              $location.url("/employees");
+              // $timeout(function(){
+              // }, 100)
+            }
+          }
         }, function(data){
           $scope.serverBusy = null;
         });

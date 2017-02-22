@@ -1,10 +1,10 @@
 {
   "data":[
-    {"email":"niranjan_awati", "password":"41993"},
-    {"email":"niranjan_awati01", "password":"41994"},
-    {"email":"niranjan_awati02", "password":"41995"},
-    {"email":"niranjan_awati03", "password":"41996"},
-    {"email":"niranjan_awati04", "password":"41997"},
-    {"email":"niranjan_awati05", "password":"41998"}
+    {"role":5,"location":"Pune","email":"niranjan_awati", "password":"41993"},
+    {"role":6,"location":"Mysore","email":"niranjan_awati01", "password":"41994"},
+    {"role":3,"location":"Bangalore","email":"niranjan_awati02", "password":"41995"},
+    {"role":7,"location":"Pune","email":"niranjan_awati03", "password":"41996"},
+    {"role":1,"location":"Pune Phase II","email":"niranjan_awati04", "password":"41997"},
+    {"role":2,"location":"Pune","email":"niranjan_awati05", "password":"41998"}
   ]
 }

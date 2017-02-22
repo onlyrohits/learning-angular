@@ -3,9 +3,9 @@
 (function(){
   var myApp = angular.module("myApp",["ngRoute"]).config(function($routeProvider){
     $routeProvider
-    .when("/", {templateUrl:"/ng/templates/login.html", controller:""})
-    .when("/login", {templateUrl:"/ng/templates/login.html", controller:""})
-    .when("/employees", {templateUrl:"/ng/templates/employees.html", controller:""})
+    .when("/", {templateUrl:"/ng/templates/login.html", controller:"loginController"})
+    .when("/login", {templateUrl:"/ng/templates/login.html", controller:"loginController"})
+    .when("/employees", {templateUrl:"/ng/templates/employees.html", controller:"employeesController"})
     .otherwise({redirectTo:"/"})
   })
 })();

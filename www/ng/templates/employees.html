@@ -1,1 +1,20 @@
-<p>this is the employees page</p>
+<div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+  <table class="table table-responsive table-condensed table-striped">
+    <thead>
+      <tr class="info">
+        <th><h4>Email</h4></th>
+        <th><h4>Location</h4></th>
+        <th><h4>Role</h4></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="e in employees">
+        <td><h4>{{e.email}}</h4></td>
+        <td><h4>{{e.location}}</h4></td>
+        <td><h4>{{e.role}}</h4></td>
+      </tr>
+    </tbody>
+  </table>
+  <br/>
+  <button ng-click="addNew()" type="button" name="button" class="btn btn-block btn-info">Add new Item</button>
+</div>
