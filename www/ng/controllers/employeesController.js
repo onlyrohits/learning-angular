@@ -1,5 +1,6 @@
 (function(){
   var employeesController = angular.module("myApp").controller("employeesController", function($scope, myappHttp){
+    $scope.phrase ="";
     myappHttp.getUsers().then(function(data){
       data.forEach(function(el, index){
         el.isDeleted  = false;

@@ -1,4 +1,9 @@
 <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+  <filter-box>
+
+  </filter-box>
+  <!-- filter-box -->
+  
   <table class="table table-responsive table-condensed table-striped">
     <thead>
       <tr class="info">
@@ -9,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="e in employees" ng-class="{true:'marked-for-delete', false:''}[e.isDeleted==true]">
+      <tr ng-repeat="e in employees | locationFilter:phrase" ng-class="{true:'marked-for-delete', false:''}[e.isDeleted==true]">
         <td ng-click="e.markDelete()"><h4><span class="glyphicon glyphicon-remove"></span></h4></td>
         <td><h4>{{e.email}}</h4></td>
         <td><h4>{{e.location}}</h4></td>
