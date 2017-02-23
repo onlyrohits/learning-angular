@@ -2,13 +2,15 @@
   <table class="table table-responsive table-condensed table-striped">
     <thead>
       <tr class="info">
+        <th><h4><span class="glyphicon glyphicon-trash"></span></h4></th>
         <th><h4>Email</h4></th>
         <th><h4>Location</h4></th>
         <th><h4>Role</h4></th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="e in employees">
+      <tr ng-repeat="e in employees" ng-class="{true:'marked-for-delete', false:''}[e.isDeleted==true]">
+        <td ng-click="e.markDelete()"><h4><span class="glyphicon glyphicon-remove"></span></h4></td>
         <td><h4>{{e.email}}</h4></td>
         <td><h4>{{e.location}}</h4></td>
         <td><h4>{{e.role}}</h4></td>
@@ -16,5 +18,5 @@
     </tbody>
   </table>
   <br/>
-  <button ng-click="addNew()" type="button" name="button" class="btn btn-block btn-info">Add new Item</button>
+  <button ng-click="confirmChanges()" type="button" name="button" class="btn btn-block btn-info">Confirm Changes</button>
 </div>
