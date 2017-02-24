@@ -6,6 +6,7 @@
     .when("/", {templateUrl:"/ng/templates/login.html", controller:"loginController"})
     .when("/login", {templateUrl:"/ng/templates/login.html", controller:"loginController"})
     .when("/users/:email/employees", {templateUrl:"/ng/templates/employees.html", controller:"employeesController"})
+    .when("/users/:email/details", {templateUrl:"/ng/templates/userDetails.html", controller:""})
     .otherwise({redirectTo:"/"})
   })
 })();

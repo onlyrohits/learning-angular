@@ -11,7 +11,9 @@
         if(myappHttp.getCachedUser() ==null || myappHttp.getCachedUser() ===undefined){
           $location.url("/");
         }
+        console.log(myappHttp.getCachedUser().email)
         if($routeParams.email != myappHttp.getCachedUser().email){
+
           $location.url("/");
         }
         $scope.user = myappHttp.getCachedUser();

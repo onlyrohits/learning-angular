@@ -1,5 +1,6 @@
 (function(){
   var myappHttp = angular.module("myApp").service("myappHttp", function($http, $q, $timeout, $window){
+
     this.getUser = function(userEmail){
       // $q : interceptor service
       var deferred = $q.defer();
