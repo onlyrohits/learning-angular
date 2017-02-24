@@ -5,7 +5,7 @@
     $routeProvider
     .when("/", {templateUrl:"/ng/templates/login.html", controller:"loginController"})
     .when("/login", {templateUrl:"/ng/templates/login.html", controller:"loginController"})
-    .when("/employees", {templateUrl:"/ng/templates/employees.html", controller:"employeesController"})
+    .when("/users/:email/employees", {templateUrl:"/ng/templates/employees.html", controller:"employeesController"})
     .otherwise({redirectTo:"/"})
   })
 })();

@@ -1,5 +1,6 @@
 (function(){
-  var employeesController = angular.module("myApp").controller("employeesController", function($scope, myappHttp){
+  var employeesController = angular.module("myApp").controller("employeesController", function($scope, myappHttp, $routeParams){
+    console.log($routeParams.email +" is the email of the user that has logged on");
     $scope.phrase ="";
     myappHttp.getUsers().then(function(data){
       data.forEach(function(el, index){

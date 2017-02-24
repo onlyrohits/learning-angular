@@ -1,5 +1,6 @@
 (function(){
   var loginController = angular.module("myApp").controller("loginController", function($scope,myappHttp,$location){
+    myappHttp.clearCachedUser();
     $scope.user ={
       email:"",
       password:""
@@ -35,7 +36,7 @@
           if (data!==undefined && data!==null) {
             if (data.password == $scope.user.password){
               myappHttp.cacheUser(data);
-              $location.url("/employees");
+              $location.url("/users/"+data.email+"/employees");
               // $timeout(function(){
               // }, 100)
             }
